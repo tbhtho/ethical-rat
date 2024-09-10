@@ -1,4 +1,4 @@
-# ethical-rat
+
 
 simple little script that you connect to a discord webhook, prints ip/geolocation/downloads/screenshot/audio/webcam/keylogs/,
 messy but works 
